@@ -1,0 +1,63 @@
+Results:
+
+1. tinyMaze:
+DFS:
+
+Path Cost: 10
+Search Nodes Expanded: 15
+Score: 500
+Win Rate: 1/1 (1.00)
+BFS:
+
+Path Cost: 8
+Search Nodes Expanded: 15
+Score: 502
+Win Rate: 1/1 (1.00)
+UCS:
+
+Path Cost: 8
+Search Nodes Expanded: 15
+Score: 502
+Win Rate: 1/1 (1.00)
+
+
+2. mediumMaze:
+DFS:
+
+Path Cost: 130
+Search Nodes Expanded: 146
+Score: 380
+Win Rate: 1/1 (1.00)
+BFS:
+
+Path Cost: 68
+Search Nodes Expanded: 269
+Score: 442
+Win Rate: 1/1 (1.00)
+UCS:
+
+Path Cost: 68
+Search Nodes Expanded: 269
+Score: 442
+Win Rate: 1/1 (1.00)
+
+
+3. bigMaze:
+DFS:
+
+Path Cost: 210
+Search Nodes Expanded: 390
+Score: 300
+Win Rate: 1/1 (1.00)
+BFS:
+
+Path Cost: 210
+Search Nodes Expanded: 620
+Score: 300
+Win Rate: 1/1 (1.00)
+UCS:
+
+Path Cost: 210
+Search Nodes Expanded: 620
+Score: 300
+Win Rate: 1/1 (1.00)
