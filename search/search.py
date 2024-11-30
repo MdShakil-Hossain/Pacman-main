@@ -73,21 +73,29 @@ def tinyMazeSearch(problem):
     return  [s, s, w, s, w, w, s, w]
 
 def depthFirstSearch(problem):
-    """
-    Search the deepest nodes in the search tree first.
+    """Search the deepest nodes in the search tree first."""
+    from util import Stack
 
-    Your search algorithm needs to return a list of actions that reaches the
-    goal. Make sure to implement a graph search algorithm.
+    # Stack for frontier
+    frontier = Stack()
+    frontier.push((problem.getStartState(), [])) 
 
-    To get started, you might want to try some of these simple commands to
-    understand the search problem that is being passed in:
+    explored = set()
 
-    print("Start:", problem.getStartState())
-    print("Is the start a goal?", problem.isGoalState(problem.getStartState()))
-    print("Start's successors:", problem.getSuccessors(problem.getStartState()))
-    """
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    while not frontier.isEmpty():
+        current_state, path = frontier.pop()
+
+        if problem.isGoalState(current_state):
+            return path
+
+        if current_state not in explored:
+            explored.add(current_state)
+            for successor, action, _ in problem.getSuccessors(current_state):
+                if successor not in explored:
+                    frontier.push((successor, path + [action]))
+
+    return []  
+
 
 def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
@@ -115,14 +123,35 @@ def breadthFirstSearch(problem):
                 # Lecture code:
                 # if problem.isGoalState(s[0]):
                 #     return currPath + [s[1]]
-                frontier.push( (s[0], currPath + [s[1]]) )      # Adding the successor and its path to the frontier
+                frontier.push( (s[0], currPath + [s[1]]) )     
 
     return []       # If this point is reached, a solution could not be found.
 
 def uniformCostSearch(problem):
     """Search the node of least total cost first."""
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    from util import PriorityQueue
+
+    # Priority Queue for frontier
+    frontier = PriorityQueue()
+    frontier.push((problem.getStartState(), []), 0)  
+
+    explored = set()
+
+    while not frontier.isEmpty():
+        current_state, path = frontier.pop()
+
+        if problem.isGoalState(current_state):
+            return path
+
+        if current_state not in explored:
+            explored.add(current_state)
+            for successor, action, cost in problem.getSuccessors(current_state):
+                if successor not in explored:
+                    new_path = path + [action]
+                    new_cost = problem.getCostOfActions(new_path)
+                    frontier.push((successor, new_path), new_cost)
+
+    return []  
 
 def nullHeuristic(state, problem=None):
     """
