@@ -59,10 +59,6 @@ python pacman.py -l mediumMaze -p SearchAgent -a fn=ucs
 
 ---
 
-## Visual Comparisons
-
-To make it easier to interpret the results, visualizations such as bar graphs or line charts can highlight the differences in **path cost**, **nodes expanded**, and **time taken** for each algorithm across mazes. 
-
 
 ## About the Project
 
